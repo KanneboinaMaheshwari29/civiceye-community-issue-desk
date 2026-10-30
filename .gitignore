@@ -1,0 +1,9 @@
+.venv/
+.deps/
+__pycache__/
+*.py[cod]
+.env
+civiceye.db
+uploads/*
+!uploads/.gitkeep
+work/

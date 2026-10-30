@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f6f2">
+  <title>CivicEye — Make your neighbourhood visible</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/"><span class="brand-mark">C</span><span>Civic<span class="brand-light">Eye</span><small>COMMUNITY ISSUE DESK</small></span></a>
+    <div class="topbar-note"><span class="live-dot"></span> Community demo · not an official government service</div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy"><p class="eyebrow">SMALL REPORTS. BETTER STREETS.</p><h1>See a problem?<br><em>Make it visible.</em></h1><p>Report a local issue with a photo and place. Follow its progress with your community.</p></div>
+      <div class="hero-art" aria-hidden="true"><div class="sun"></div><div class="hill hill-back"></div><div class="hill hill-front"></div><div class="pin"><span></span></div><div class="art-label">YOUR NEIGHBOURHOOD<br><b>STARTS HERE</b></div></div>
+    </section>
+
+    <section class="stats" aria-label="Report totals">
+      <div><strong id="total-count">0</strong><span>community reports</span></div>
+      <div><strong id="active-count">0</strong><span>being worked on</span></div>
+      <div><strong id="resolved-count">0</strong><span>marked resolved</span></div>
+      <div class="stats-note">A shared view helps neighbours<br>spot what needs attention.</div>
+    </section>
+
+    <div class="content-grid">
+      <section class="panel form-panel" id="report">
+        <div class="section-heading"><div><p class="eyebrow">START WITH WHAT YOU SEE</p><h2>Report an issue</h2></div><span class="step-badge">01</span></div>
+        <form id="report-form">
+          <label class="field-label" for="title">Short issue title</label>
+          <input id="title" name="title" maxlength="100" placeholder="e.g. Streetlight out near the bus stop" required>
+
+          <div class="field-row"><div><label class="field-label" for="category">What kind of issue?</label><select id="category" name="category" required><option value="" disabled selected>Select the closest match</option><option>Roads &amp; potholes</option><option>Streetlights &amp; electricity</option><option>Waste &amp; cleanliness</option><option>Water &amp; leaks</option><option>Drainage &amp; flooding</option><option>Footpaths &amp; accessibility</option><option>Traffic signs &amp; signals</option><option>Parks &amp; trees</option><option>Other</option></select></div><div><label class="field-label" for="location">Place or landmark</label><input id="location" name="location" maxlength="160" placeholder="Street, area or landmark" required></div></div>
+
+          <label class="field-label" for="description">Describe the problem</label>
+          <textarea id="description" name="description" maxlength="2000" rows="4" placeholder="What is wrong? Add details that could help someone understand the issue." required></textarea>
+
+          <label class="field-label" for="photo">Photo <span class="optional">OPTIONAL · JPG, PNG OR WEBP · UP TO 8 MB</span></label>
+          <label class="upload-box" for="photo"><span class="upload-icon">＋</span><span><b id="photo-label">Add a photo</b><small>A clear photo helps others understand the issue</small></span><span class="upload-arrow">↗</span></label><input class="visually-hidden" id="photo" name="photo" type="file" accept="image/jpeg,image/png,image/webp">
+
+          <p class="privacy-note"><span>◉</span> Use a place or landmark. This demo does not collect precise GPS location.</p>
+          <button class="submit-button" type="submit"><span>Submit community report</span><span>→</span></button>
+          <p id="form-message" class="form-message" role="status" aria-live="polite"></p>
+        </form>
+      </section>
+
+      <section class="panel feed-panel" id="dashboard">
+        <div class="section-heading feed-heading"><div><p class="eyebrow">LOCAL PULSE</p><h2>Community reports <span id="feed-count" class="count-pill">0</span></h2></div><button id="refresh-button" class="refresh-button" type="button" aria-label="Refresh reports">↻</button></div>
+        <section class="area-pulse" aria-label="Reports grouped by place"><div class="area-pulse-head"><div><p class="eyebrow">PLACE OVERVIEW</p><h3>Commonly reported places</h3></div><span class="area-hint">Grouped by typed landmark</span></div><div id="area-bars" class="area-bars"><p class="area-empty">Place summary will appear when reports are added.</p></div></section>
+        <div class="feed-controls"><span>Latest first</span><label for="category-filter" class="visually-hidden">Filter by category</label><select id="category-filter"><option value="all">All categories</option></select><label for="status-filter" class="visually-hidden">Filter by status</label><select id="status-filter"><option value="all">All statuses</option><option>Submitted</option><option>In progress</option><option>Resolved</option></select></div>
+        <div id="reports-list" class="reports-list"><div class="empty-state"><span class="empty-icon">⌖</span><h3>It starts with one report</h3><p>Share a local issue and it will appear here for everyone.</p></div></div>
+        <div class="feed-footer"><span class="live-dot"></span> Updates are shared in this demo dashboard</div>
+      </section>
+    </div>
+  </main>
+
+  <footer><a class="brand footer-brand" href="/"><span class="brand-mark">C</span><span>Civic<span class="brand-light">Eye</span></span></a><span>Built for the community, one block at a time.</span><span>Hackathon prototype · Not an official service</span></footer>
+  <script src="/static/app.js" defer></script>
+</body>
+</html>
